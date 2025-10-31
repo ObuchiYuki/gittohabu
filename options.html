@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub 日本語化 - 設定</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>GitHub 日本語化 — 設定</h1>
+    <section class="card">
+      <h2>基本設定</h2>
+      <label class="row">
+        <input type="checkbox" id="isEnabledOnGithub" />
+        <span>github.com および gist.github.com で常に日本語化を有効にする</span>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>翻訳 API（任意）</h2>
+      <p class="note">
+        内蔵辞書に無い文や文章を翻訳するために、任意の翻訳 API を利用できます。<br />
+        <strong>注意:</strong> 有効化すると、ページ上のテキストが選択した提供者に送信されます。機密情報を含む場合はオフにしてください。
+      </p>
+      <label class="row">
+        <input type="checkbox" id="useTranslationApi" />
+        <span>翻訳 API を使用する</span>
+      </label>
+      <div class="grid">
+        <label>翻訳提供者
+          <select id="translationProvider">
+            <option value="None">使用しない（辞書のみ）</option>
+            <option value="DeepL">DeepL</option>
+            <option value="Google">Google Cloud Translation</option>
+            <option value="Azure">Azure Translator</option>
+          </select>
+        </label>
+
+        <label>API キー
+          <input type="password" id="translationApiKey" placeholder="例: free:xxxxxxxx (DeepL Free は先頭に free:)" />
+        </label>
+
+        <label>リージョン（Azure のみ）
+          <input type="text" id="translationRegion" placeholder="例: japaneast" />
+        </label>
+
+        <label>翻訳の強さ
+          <select id="translationAggressiveness">
+            <option value="conservative">慎重（控えめに翻訳）</option>
+            <option value="balanced">バランス</option>
+            <option value="aggressive">積極（多くのテキストを翻訳）</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button id="saveButton">保存</button>
+        <button id="testButton">テスト翻訳</button>
+        <button id="clearButton" class="secondary">設定を初期化</button>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>使い方のヒント</h2>
+      <ul>
+        <li>この拡張は GitHub の UI をなるべく安全に日本語化します。コード領域や差分は翻訳しません。</li>
+        <li>キーボード: <kbd>Alt</kbd> + <kbd>J</kbd> で有効・無効を切り替え。</li>
+        <li>右上の拡張アイコンから「今すぐ翻訳」を実行できます。</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <small>プライバシー: 翻訳 API を有効化すると、ページ中のテキストが外部の翻訳サービスに送信されます。自己責任でご利用ください。</small>
+    </footer>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

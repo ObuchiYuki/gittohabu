@@ -1,0 +1,65 @@
+
+"use strict";
+// 内蔵辞書。GitHub UI で頻出のフレーズを網羅的に日本語化します。
+// 可能な限り「単語全体一致」を優先します。ユーザー生成コンテンツやコードには極力影響しないようにしています。
+const GITHUB_JA_DICTIONARY = [
+  // 上部ナビゲーション
+  ["Home", "ホーム"],
+  ["Top repositories", "トップリポジトリ"],
+  ["Show more", "もっと見る"],
+  ["Ask anything", "何でも聞いてください"],
+  ["Add repositories, files, and spaces", "リポジトリ、ファイル、スペースを追加"],
+  ["New", "新規作成"],
+  ["Dashboard", "ダッシュボード"],
+  ["Type", "タイプ"],
+  ["to Search", "して検索"],
+  ["Task", "タスク"],
+  ["Create issue", "イシューを作成"],
+  ["Spark", "スパーク"],
+  ["starred", "がスターを付けました"],
+  ["a repository", "リポジトリに"],
+  ["followed", "がフォローしました"],
+  ["hours ago", "時間前"],
+  ["hour ago", "時間前"],
+  ["minutes ago", "分前"],
+  ["minute ago", "分前"],
+  ["Just now", "たった今"],
+  ["Trending repositories", "注目のリポジトリ"],
+  ["Try the new experience", "新しい体験を試す"],
+  ["Issues", "イシュー"],
+  ["Pull requests", "プルリクエスト"],
+  ["Discussions", "ディスカッション"],
+  ["Actions", "アクション"],
+  ["Projects", "プロジェクト"],
+  ["Security", "セキュリティ"],
+  ["Insights", "インサイト"],
+  ["Settings", "設定"],
+  ["Code", "コード"],
+  ["Filter", "フィルター"],
+  ["Sort", "並び替え"],
+  ["Find a repository…", "リポジトリを見つける…"],
+  ["See more", "もっと見る"],
+  ["contributed to", "が貢献しました"],
+  ["Explore GitHub’s latest tools shaping agentic software and developer choice.", "GitHubの最新ツールがエージェントソフトウェアと開発者の選択をどのように形作っているかを探る。"],
+  ["See what's new", "新着情報を見る"],
+  ["Latest from our changelog", "私たちの変更ログからの最新情報"],
+  ["View changelog", "変更ログを見る"],
+  ["Repositories", "リポジトリ"],
+  ["Codespaces", "コードスペース"],
+  ["Packages", "パッケージ"],
+  ["Stars", "スター"],
+  ["Explore", "探す"],
+  ["Marketplace", "マーケットプレイス"],
+  ["Private", "非公開"],
+  ["Public", "公開"],
+  ["No description, website, or topics provided.", "説明、ウェブサイト、またはトピックが提供されていません。"],
+  ["Releases", "リリース"],
+  ["There aren’t any releases here", "ここにはリリースがありません"],
+  ["Tags", "タグ"],
+  ["There aren’t any tags here", "ここにはタグがありません"],
+];
+
+// 単語の大小に左右されにくいよう、キーは長い順でソートして後で正規表現に変換します。
+const GITHUB_JA_DICTIONARY_SORTED = GITHUB_JA_DICTIONARY
+  .slice()
+  .sort((a, b) => b[0].length - a[0].length);

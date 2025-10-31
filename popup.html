@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub 日本語化</title>
+  <style>
+    body { margin: 0; padding: 12px; width: 280px; font-family: system-ui, -apple-system, Segoe UI, Noto Sans JP, sans-serif; background: #0d1117; color: #c9d1d9; }
+    .row { display: flex; align-items: center; gap: 10px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px; }
+    button { width: 100%; margin-top: 8px; background: #238636; color: #fff; border: 1px solid #30363d; border-radius: 6px; padding: 8px 10px; cursor: pointer; }
+    a { color: #58a6ff; text-decoration: none; }
+    .muted { color: #8b949e; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <label class="row">
+      <input type="checkbox" id="toggleEnabled" />
+      <span>GitHub で日本語化を有効にする</span>
+    </label>
+    <button id="translateNowButton">今すぐ翻訳</button>
+    <p class="muted"><a href="options.html" target="_blank">設定を開く</a></p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub 日本語化 (全面翻訳)",
+  "description": "GitHub の画面を日本語にします。内蔵辞書による置換と、任意の翻訳 API (DeepL / Google Cloud / Azure) を利用できます。",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "GitHub 日本語化",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://gist.github.com/*",
+    "https://api.deepl.com/*",
+    "https://api-free.deepl.com/*",
+    "https://translation.googleapis.com/*",
+    "https://api.cognitive.microsofttranslator.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*",
+        "https://gist.github.com/*"
+      ],
+      "js": [
+        "dictionary.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
